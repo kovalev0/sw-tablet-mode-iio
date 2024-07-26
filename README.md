@@ -1,6 +1,11 @@
 # sw-tablet-mode-iio
 Systemd service to identify SW_TABLET_MODE from iio-sensor-proxy event and handling it:
 
+Tested on ALT linux distro
+
+The iio-sensor-proxy should be able to calculate the hinge angle based on the
+readings of two accelerometers (located in screen and base)
+
 mode tablet - disable kbd, touchpad and running virt kbd
 
 mode laptop - enable kbd, touchpad and stopping virt kbd
