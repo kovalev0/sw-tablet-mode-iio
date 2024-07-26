@@ -1,0 +1,14 @@
+[Unit]
+Description=Tablet Mode Handler
+After=graphical-session.target
+
+[Install]
+WantedBy=default.target
+
+[Service]
+Type=simple
+Restart=always
+Environment="DISPLAY=:0"
+#Environment="XAUTHORITY=/home/user/.Xauthority"
+ExecStartPre=/bin/sleep 5
+# ExecStart will be placed here at installation
