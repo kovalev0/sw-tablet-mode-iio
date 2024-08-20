@@ -38,7 +38,7 @@ cp -f  $PWD/$NAME_SW_LISTENER $PWD/env.sh $DIR_DATA
 # so let's take the first available one
 
 found=false
-for home in "${HOME_DIRS[@]}"; do
+for home in ${HOME_DIRS[@]}; do
   if [ -d "$home" ]; then
     if [ -f "$home/.Xauthority" ]; then
       USER_NAME=$(basename "$home")
