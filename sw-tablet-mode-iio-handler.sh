@@ -22,7 +22,9 @@ fi
 echo "Monitoring device: $device_path"
 
 # Check tablet mode after reboot
+tablet_mode="0"
 if [ "$(cat ${NAME_VAR_MODE_TABLET})" -eq 1 ];then
+	tablet_mode="1"
 	xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
 	xinput set-prop "${NAME_TOUCHPAD}" "Device Enabled" 0
 	onboard &
@@ -36,15 +38,19 @@ stdbuf -oL libinput debug-events --device=$device_path | while read -r line; do
         if [ "$state" == "1" ]; then
             echo "$(date): Tablet mode enabled"
             echo "1" > "${NAME_VAR_MODE_TABLET}"
-            xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
-            xinput set-prop "${NAME_TOUCHPAD}" "Device Enabled" 0
-            onboard &
+            if [ "$tablet_mode" == "0" ]; then
+                xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0
+                xinput set-prop "${NAME_TOUCHPAD}" "Device Enabled" 0
+                onboard &
+            fi
+            tablet_mode="1"
         else
             echo "$(date): Tablet mode disabled"
             echo "0" > "${NAME_VAR_MODE_TABLET}"
             xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 1
             xinput set-prop "${NAME_TOUCHPAD}" "Device Enabled" 1
             killall onboard
+            tablet_mode="0"
         fi
     fi
 done
