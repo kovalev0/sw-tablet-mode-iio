@@ -14,8 +14,11 @@ NAME_SW_LISTENER="sw-tablet-mode-iio-handler.sh"
 # services
 NAME_SW_LISTENER_SERVICE="sw-tablet-mode-iio.service"
 
-# overvrite
+# overwrite
 NAME_TOUCHPAD="SYNA3602:00 0911:5288 Touchpad"
+
+# list of touchpad's
+NAME_TOUCHPAD_LIST="list-touchpads.conf"
 
 # for acces to X server
 HOME_DIRS=$(find /home -mindepth 1 -maxdepth 1 -type d)
