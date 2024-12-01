@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 DIR_NAME="sw-tablet-mode-iio"
 DIR_DATA="/usr/share/$DIR_NAME/"

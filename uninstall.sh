@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 cd "$(dirname $(readlink -e $0))"
 
