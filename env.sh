@@ -1,8 +1,8 @@
 #!/bin/bash -x
 
 DIR_NAME="sw-tablet-mode-iio"
-DIR_DATA="/usr/local/bin/$DIR_NAME/"
-DIR_SERVICES="/etc/systemd/system/"
+DIR_DATA="/usr/share/$DIR_NAME/"
+DIR_SERVICES="/lib/systemd/system/"
 DIR_VAR="/var/lib/"
 
 # 0 - laptop,  1 - tablet
